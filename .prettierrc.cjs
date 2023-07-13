@@ -10,7 +10,6 @@ module.exports = {
   bracketSpacing: true,
   bracketSameLine: false,
   arrowParens: "always",
-  parser: "typescript",
   requirePragma: false,
   proseWrap: "preserve",
   endOfLine: "lf",
