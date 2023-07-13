@@ -21,16 +21,17 @@ module.exports = {
   },
   plugins: ["react-refresh", "react", "import"],
   rules: {
+    "@typescript-eslint/no-unused-vars": ["warn", {
+      argsIgnorePattern: "^_", varsIgnorePattern: "^_"
+    }],
     "react-refresh/only-export-components": [
       "warn",
       { allowConstantExport: true },
     ],
     "react/react-in-jsx-scope": "off",
-    "@typescript-eslint/no-non-null-assertion": "off",
-    "import/newline-after-import": "warn",
     "tailwindcss/no-custom-classname": "off",
-    "@typescript-eslint/no-unused-vars": ["off", { argsIgnorePattern: "^_$" }],
-    "import/no-unresolved": ["off", { ignore: ["^@/"] }],
+    "import/newline-after-import": "warn",
+    "import/no-unresolved": ["warn", { ignore: ["^@/"] }],
     "import/order": [
       "warn",
       {
