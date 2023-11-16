@@ -19,7 +19,7 @@ module.exports = {
     project: true,
     tsconfigRootDir: __dirname,
   },
-  ignorePatterns: ["postcss.config.cjs"],
+  ignorePatterns: ["postcss.config.cjs", "dist", ".eslintrc.cjs"],
   plugins: ["react-refresh", "react", "import"],
   rules: {
     "@typescript-eslint/no-unused-vars": [
@@ -32,8 +32,9 @@ module.exports = {
     ],
     "react/react-in-jsx-scope": "off",
     "tailwindcss/no-custom-classname": "off",
+    "no-restricted-imports": ["error", { patterns: ["../*", "../**/*"] }],
     "import/newline-after-import": "warn",
-    "import/no-unresolved": ["warn", { ignore: ["^@/"] }],
+    "import/no-default-export": "warn",
     "import/order": [
       "warn",
       {
@@ -44,5 +45,16 @@ module.exports = {
         },
       },
     ],
+  },
+  settings: {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"],
+    },
+    "import/resolver": {
+      typescript: {
+        alwaysTryTypes: true,
+        project: "src/",
+      },
+    },
   },
 };
