@@ -7,9 +7,10 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-type-checked",
     "plugin:react-hooks/recommended",
-    "plugin:tailwindcss/recommended",
     "plugin:react/recommended",
+    "plugin:tailwindcss/recommended",
     "plugin:import/recommended",
+    "plugin:storybook/recommended",
     "prettier",
   ],
   parser: "@typescript-eslint/parser",
@@ -57,4 +58,12 @@ module.exports = {
       },
     },
   },
+  overrides: [
+    {
+      files: ["**/*.stories.ts", "**/*.stories.tsx"],
+      rules: {
+        "import/no-default-export": "off",
+      },
+    },
+  ],
 };
